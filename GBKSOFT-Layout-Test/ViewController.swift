@@ -9,17 +9,32 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setUpNavigationBar()
+        
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
+    func setUpNavigationBar(){
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
 }
 
+
+class WhiteNavigationController:UINavigationController{
+    override var preferredStatusBarStyle: UIStatusBarStyle{return .lightContent}
+}
